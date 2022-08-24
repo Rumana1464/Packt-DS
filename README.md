@@ -25,3 +25,6 @@ a) Paired t-test which is used to check the effect of COVID-19 on stock prices.
 b) Exponential smoothing method and Auto Regressive Integrated Moving Average (ARIMA) which is time series tools used to forecast future stock prices. 
 
 c) Monte Carlo simulation to check the volatility in the data and also we consider to forecast future price’s ranges.
+
+
+Click to visit site: https://github.com/Rumana1464/Packt-DS.git
