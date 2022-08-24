@@ -1,0 +1,32 @@
+1) R code for ARIMA model     
+### libraries required
+library(timeDate)
+library(timeSeries)
+library(forecast)
+library(tseries)
+library(xts)
+####ARIMA for IDBI
+### plots to used to get the order of AR(p) and order of MA(q) 
+par(mfrow=c(1,2))
+Acf(idbi2016to2020$`Close Price`,main="Acf for different series")
+Pacf(idbi2016to2020$`Close Price`,main="Pacf for different seriis")
+## the augmented Ducky-Fuller test is used to check the sationarity of the data
+### α=0.05
+print(adf.test(idbi2016to2020$`Close Price`))
+### auto.arima() function is used to obtain appropriate ARIMA model
+aima_mdel=auto.arima(idbi2016to2020$`ClosePrice`,stationary= FALSE,ic=c("aicc","aic","bic"),trace =TRUE )
+tsdisplay(residuals(fitA),lag.max =40,main ="(2,1,2) model resiuduals"  )
+##Forecasting the future values
+forcast1=forecast(aima_mdel,h=20)
+### plotting the forecasted values
+plot(forcast1)
+
+
+
+
+
+
+
+
+
+
